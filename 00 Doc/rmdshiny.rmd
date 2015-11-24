@@ -1,0 +1,36 @@
+---
+title: "DVS_Project1"
+author: "Aura Maria Salazar, Adriana Murga"
+date: "November 23, 2015"
+output: html_document
+---
+#Project 6 Steps
+
+In this project, we were given the task to reproduce our Tableau and our R-studio barchart, scatterplot and crosstab utilizing Shiny.
+
+#Step 1
+The first step was to get our data, for which we used the same data as we had used in our project 4 and 5. The data that we used is "Medicare Spending". Our folder will contain the following:
+00 Doc : The RMD and HTML file that has the steps to reproduce our project.
+01 Data: The data we used to buid our different visualizations.
+02 Shiny: Here are the links for the server.r and the ui.r 
+
+##Data Summary
+
+```{r}
+source("../01 Data/MedicareSummary.R", echo = TRUE)
+```
+
+#Step 2
+Here is our shiny URL where you can find our project [Shiny_Website](https://ams6624.shinyapps.io/DV_SProject1)
+
+#Step 3: Visualizations
+
+##ScatterPlot
+For our scatter plot we compared the average spending per hopsital(average spending per episode) with the percent spending per hospital. This was interesting because we could then approximate the total budget each hospital has. We figured this out by observing how much money did each hospital spend and the perecent that it meant for each hopsital. Thus what we decided to do using our Shiny app, was to choose specific states and then display the information for that specific state only. Since there are many hospitals per state, there is still going to be plenty of observations displayed in the plot. This gave us an idea of how much hospitals in specific states are spending and also how much money do hospitals in different states have. It also gives a different perspective because we are only using the data for one or more specific states (depending on what the user wants to see) which gives a different distribution for the data each time.
+
+##Barchart
+In the bar chart we decided to display the amount of money that the hopsitals in each state spended and compare it to the other states also taking into consideration the number of hospitals each states had -which is what we use as our fill for the bars-. To do this we used States as our column parameter and SUM average spending per hospital as our row parameter. In consequence this gave us the total amount of money spend by each state. We then decided to put the reference line marking the average amount spend by all states. This enabled us to see which states were above and below average. What we decided to do with our shiny app is to enable the user to choose what region to display and it displayed only the information of the states that are located in that region. This enabled us to compare approximatley how different were the expenditures of the states in different regions and how many hospitals are generally found in each regions. 
+
+##Crosstab
+For the crosstab visualization we wanted to observe the average spending of each hospital in every state, separating it by the different claim types that were made in each hospital. Therefore, we used as our column parameters, Claim Type and as our row paramenter Hospital Name and State. Since we wanted to analyize the spending, our text filter was the averagespending. This enabled us to see how much was each hospital spending per each claim time. What we decided to portray in our Shiny app, was that we wanted to create a slider that enabled us to compare what hospitals had inputed spendings in each claimtype that were above (as a state and a national average). This made it interesting because we could change the input or the quantatiy we wanted to compare and still it gave us a result based on that. Also, this time for our crosstab, we only choose 5 states so that the data could be seen clear becuase we were interesting to see how it changed depending on our input. 
+ 
